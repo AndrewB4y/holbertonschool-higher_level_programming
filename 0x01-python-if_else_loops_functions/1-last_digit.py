@@ -9,7 +9,7 @@ if number < 0:
 else:
     last = number % 10
 
-print("is {:d} and is ".format(last), end=' ')
+print("is {:d} and is".format(last), end=' ')
 
 if last > 5:
     print("greater than 5")
