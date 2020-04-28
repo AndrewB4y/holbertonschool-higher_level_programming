@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 import random
-number = random.randint(-10000, 10000)
 
-print("Last digit of {:d}".format(number), end=' ')
+number = random.randint(-10000, 10000)
 
 if number < 0:
     last = abs(number) % 10
@@ -10,6 +9,7 @@ if number < 0:
 else:
     last = number % 10
 
+print("Last digit of {:d}".format(number), end=' ')
 print("is {:d} and is".format(last), end=' ')
 
 if last > 5:
