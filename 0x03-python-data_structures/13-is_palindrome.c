@@ -9,27 +9,28 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *node_up = NULL, *node_down = NULL;
-	int len = 0, i;
+	listint_t **n_stck = NULL, *node = NULL;
+	int i = 0, j = 0, st_size = 0;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
-	node_up = *head;
-	node_down = *head;
-	while (node_down->next != NULL)
+	node = *head;
+	while (node != NULL)
 	{
-		node_down = node_down->next;
-		len = len + 1;
-	}
-	while (len >= 0)
-	{
-		if (node_up->n != node_down->n)
+		st_size += sizeof(listint_t *);
+		n_stck = realloc(n_stck, st_size);
+		if (n_stck == NULL)
 			return (0);
-		node_up = node_up->next;
-		node_down = node_up;
-		len = len - 2;
-		for (i = 1; i <= len; i++)
-			node_down = node_down->next;
+		n_stck[j] = node;
+		node = node->next;
+		j = j + 1;
 	}
+	--j;
+	while (i < j)
+	{
+		if (n_stck[i++]->n != n_stck[j--]->n)
+			return (0);
+	}
+	free(n_stck);
 	return (1);
 }
