@@ -4,7 +4,7 @@
 def multiple_returns(sentence):
 
     out = [0, None]
-    if sentence not None:
+    if sentence is not None:
         ls = len(sentence)
         if ls > 0:
             out[0] = ls
