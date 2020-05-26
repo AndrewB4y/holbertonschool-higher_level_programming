@@ -22,7 +22,6 @@ def text_indentation(text):
     new = 1
     for c in text:
         if new != 0 and c == ' ':
-            new = 0
             continue
         new = 0
         print(c, end='')
