@@ -27,7 +27,15 @@ Example:
 
 
 def print_square(size):
+    """print_square function
 
+    print_square(size)
+
+    This function receives a positive integer to print such size square in #'s.
+    If no integer is received a TypeError is raised. If the value is less than
+    0 a ValueError is raised.
+
+    """
     if type(size) is not int:
         raise TypeError("size must be an integer")
     elif size < 0:
