@@ -47,4 +47,3 @@ def print_square(size):
                 print("#", end='')
             if i < size - 1:
                 print()
-    print()
