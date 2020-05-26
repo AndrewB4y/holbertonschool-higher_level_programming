@@ -60,7 +60,7 @@ class Rectangle:
     def __str__(self):
         """similar as my_print"""
         msg = []
-        if self.__width > 0 or self.__height > 0:
+        if self.__width > 0 and self.__height > 0:
             for i in range(self.__height):
                 for j in range(self.__width):
                     msg.append("#")
@@ -73,7 +73,7 @@ class Rectangle:
         This method uses the symbol # to graphically represent the
         current square state.
         """
-        if self.__width > 0 or self.__height > 0:
+        if self.__width > 0 and self.__height > 0:
             for i in range(self.__height):
                 for j in range(self.__width):
                     print("#", end='')
