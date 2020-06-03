@@ -4,6 +4,8 @@
 
 
 def add_attribute(obj, att_name, att_value):
+    """ add_attribute function """
+
     if type(obj).__module__ != "builtins":
         setattr(obj, att_name, att_value)
     else:
