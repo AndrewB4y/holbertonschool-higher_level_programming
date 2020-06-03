@@ -20,6 +20,14 @@ Using ``integer_validator`` function
 	Traceback (most recent call last):
         ...
 	TypeError: float_n must be an integer
+	>>> bg.integer_validator("float_n", float("inf"))
+	Traceback (most recent call last):
+        ...
+	TypeError: float_n must be an integer
+	>>> bg.integer_validator("float_n", float("-inf"))
+	Traceback (most recent call last):
+        ...
+	TypeError: float_n must be an integer
 	>>> bg.integer_validator("boolean", True)
 	Traceback (most recent call last):
         ...
