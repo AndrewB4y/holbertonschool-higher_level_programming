@@ -24,3 +24,6 @@ but sorted (ascending sort).
     >>> my_list.append(-5)
     >>> my_list.print_sorted()
     [-5, 1, 2, 3, 4, 5]
+    >>> my_list.append(0)
+    >>> my_list.print_sorted()
+    [-5, 0, 1, 2, 3, 4, 5]
