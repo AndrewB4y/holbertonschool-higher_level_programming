@@ -72,3 +72,7 @@ Using ``integer_validator`` function
 	Traceback (most recent call last):
         ...
 	TypeError: name must be an integer
+	>>> bg.integer_validator("name", {"a": 8})
+	Traceback (most recent call last):
+        ...
+	TypeError: name must be an integer
