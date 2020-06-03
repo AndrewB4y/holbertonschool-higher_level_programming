@@ -16,6 +16,14 @@ Using ``integer_validator`` function
 	Traceback (most recent call last):
         ...
 	TypeError: name must be an integer
+	>>> bg.integer_validator("float_n", 5.23)
+	Traceback (most recent call last):
+        ...
+	TypeError: float_n must be an integer
+	>>> bg.integer_validator("boolean", True)
+	Traceback (most recent call last):
+        ...
+	TypeError: boolean must be an integer
 	>>> bg.integer_validator("age", 0)
 	Traceback (most recent call last):
         ...
@@ -32,3 +40,7 @@ Using ``integer_validator`` function
 	Traceback (most recent call last):
         ...
 	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+	>>> bg.integer_validator("name", None)
+	Traceback (most recent call last):
+        ...
+	TypeError: name must be an integer
