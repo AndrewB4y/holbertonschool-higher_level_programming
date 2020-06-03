@@ -8,5 +8,7 @@ def add_attribute(obj, att_name, att_value):
 
     if obj.__class__.__module__ == 'builtins':
         raise TypeError("can't add new attribute")
+    elif obj.__slots__ and att_name not in obj.__slots__:
+        raise TypeError("can't add new attribute")
 
     setattr(obj, att_name, att_value)
