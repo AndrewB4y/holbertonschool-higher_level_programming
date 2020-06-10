@@ -3,6 +3,7 @@
 """ base module """
 import json
 import os
+import csv
 
 
 class Base:
@@ -66,6 +67,46 @@ class Base:
             j_data = f.read()
             j_data = cls.from_json_string(j_data)
             for d in j_data:
+                instances.append(cls.create(**d))
+
+        return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ save_to_file_csv function """
+
+        if list_objs is not None and len(list_objs) != 0:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ['id', 'width', 'height', 'x', 'y']
+            else:
+                fieldnames = ['id', 'size', 'x', 'y']
+
+        content = []
+        if list_objs is not None and len(list_objs) != 0:
+            for obj in list_objs:
+                content.append(obj.to_dictionary())
+
+        with open("{}.csv".format(cls.__name__), 'w') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+            for data in content:
+                writer.writerow(data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ load_from_file_csv """
+
+        f_name = "{}.csv".format(cls.__name__)
+
+        if not os.access(f_name, os.F_OK):
+            return []
+
+        instances = []
+        with open(f_name, "r") as f:
+            csv_data = csv.DictReader(f)
+            for d in csv_data:
+                for k in d:
+                    d[k] = int(d[k])
                 instances.append(cls.create(**d))
 
         return instances
