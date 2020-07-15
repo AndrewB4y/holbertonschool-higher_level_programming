@@ -1,4 +1,5 @@
--- 100-not_my_genres list all genres not linked to the show Dexter.
+-- 100-not_my_genres list all genres not linked to
+-- the show Dexter.
 SELECT DISTINCT tv_genres.name AS name
 FROM tv_shows, tv_genres, tv_show_genres
 WHERE tv_genres.name NOT IN(
