@@ -22,7 +22,7 @@ if __name__ == "__main__":
                    """.format(inp[4])
     cur.execute(query_str)
     query_rows = cur.fetchall()
-    if len(query_rows):
-        print(query_rows[0])
+    for row in query_rows:
+        print(row)
     cur.close()
     conn.close()

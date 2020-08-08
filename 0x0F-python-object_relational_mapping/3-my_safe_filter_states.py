@@ -21,7 +21,7 @@ if __name__ == "__main__":
                    WHERE name = %(name)s
                    ORDER BY id ASC''', {'name': inp[4]})
     query_rows = cur.fetchall()
-    if len(query_rows):
-        print(query_rows[0])
+    for row in query_rows:
+        print(row)
     cur.close()
     conn.close()
