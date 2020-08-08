@@ -23,8 +23,8 @@ if __name__ == "__main__":
     session = Session()
 
     output = session.query(State.name, City.id, City.name) \
-             .join(City, State.id == City.state_id) \
-             .order_by(City.id).all()
+                    .join(City, State.id == City.state_id) \
+                    .order_by(City.id).all()
 
     for city in output:
         print("{}: ({}) {}".format(city[0], city[1], city[2]))
