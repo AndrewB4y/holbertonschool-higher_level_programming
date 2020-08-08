@@ -18,10 +18,11 @@ if __name__ == "__main__":
     cur = conn.cursor()
     query_str = """SELECT *
                    FROM states
-                   WHERE name = '{}'
-                   ORDER BY id ASC""".format(inp[4])
+                   WHERE name LIKE BINARY '{}'
+                   """.format(inp[4])
     cur.execute(query_str)
     query_rows = cur.fetchall()
-    print(query_rows[0])
+    if len(query_rows):
+        print(query_rows[0])
     cur.close()
     conn.close()
