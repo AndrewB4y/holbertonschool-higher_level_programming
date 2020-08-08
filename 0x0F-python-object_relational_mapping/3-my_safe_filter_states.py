@@ -16,14 +16,12 @@ if __name__ == "__main__":
                            db=inp[3],
                            charset="utf8")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
-    """cur.execute('''SELECT *
+    cur.execute('''SELECT *
                    FROM states
                    WHERE name = %(name)s
-                   ORDER BY id ASC''', {'name': inp[4]})"""
+                   ORDER BY id ASC''', {'name': inp[4]})
     query_rows = cur.fetchall()
-    for row in query_rows:
-        if row[1] == inp[4]:
-            print(row)
+    if len(query_rows):
+        print(query_rows[0])
     cur.close()
     conn.close()
