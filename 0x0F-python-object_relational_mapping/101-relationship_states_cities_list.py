@@ -22,16 +22,12 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
     session = Session()
-
-    my_query = session.query(State, City) \
-                      .join(State.cities) \
-                      .order_by(State.id, City.id) \
+    my_query = session.query(State) \
+                      .order_by(State.id) \
                       .all()
-    prev_state = ""
-    for state, city in my_query:
-        if (prev_state != state.name):
-            print("{}: {}".format(state.id, state.name))
-            prev_state = state.name
-        print("\t{}: {}".format(city.id, city.name))
+    for state in my_query:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("\t{}: {}".format(city.id, city.name))
 
     session.close()
