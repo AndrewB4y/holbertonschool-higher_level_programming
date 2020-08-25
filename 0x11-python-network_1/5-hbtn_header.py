@@ -2,9 +2,10 @@
 
 """ 5-hbtn_header module """
 
-import requests
-import sys
+if __name__ == "__main__":
+    import requests
+    import sys
 
-v = sys.argv
-r = requests.get(v[1])
-print(r.headers['X-Request-Id'])
+    v = sys.argv
+    r = requests.get(v[1])
+    print(r.headers.get('X-Request-Id'))
