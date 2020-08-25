@@ -2,7 +2,8 @@
 
 """ 2-post_email module """
 if __name__ == "__main__":
-    import urllib
+    import urllib.request
+    import urllib.parse
     import sys
 
     v = sys.argv

@@ -3,7 +3,8 @@
 """ 3-error_code module """
 
 if __name__ == "__main__":
-    import urllib
+    import urllib.request
+    import urllib.error
     import sys
 
     v = sys.argv
